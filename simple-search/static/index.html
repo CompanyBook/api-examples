@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>minigrow</title>
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    <body>
+        <script src="//unpkg.com/mithril/mithril.js"></script>
+        <script>
+        var query = ''
+        var resultset = []
+        var ResultSet = {
+            view: function() {
+                return m(
+                    'ol',
+                    resultset.map(function(result) {
+                        return m(
+                            'li',
+                            [m('#title', m(
+                                'a',
+                                {href: result['url']},
+                                result['name']
+                            )),
+                            m('#snippet', m.trust(result['snippet']))]
+                        )
+                    })
+                )
+            }
+        }
+        var root = document.body
+        var submit = function() {
+            return m.request({
+                method: "GET",
+                url: "/search?q=" + query
+            }).then(function(result) {
+                resultset = result
+                var parent = document.getElementById('main')
+                m.mount(parent, ResultSet)
+            })
+        }
+        var key = function(event) {
+            if (event.keyCode == 13) submit()
+        }
+        m.render(
+            root, [
+                m('h1', 'minigrow'),
+                m(
+                    'input[type=text]',
+                    {
+                        autofocus: 'autofocus',
+                        name: 'q',
+                        onkeydown: key,
+                        oninput: m.withAttr("value", function(value) {
+                            query = value
+                        })
+                    }
+                ),
+                m('#main')
+            ]
+        )
+        </script>
+    </body>
+</html>
