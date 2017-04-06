@@ -1,0 +1,17 @@
+body {
+    font-family: 'Comfortaa', cursive;
+    margin: 3em;
+}
+ol {
+    padding-left: 1em;
+}
+li {
+    padding-bottom: 1em;
+}
+h1 {
+    color: #1188bb;
+    margin-left: .5em;
+}
+input {
+    margin-left: 1.5em;
+}
