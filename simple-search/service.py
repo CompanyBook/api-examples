@@ -4,7 +4,7 @@ from logging import error
 from requests import get
 
 
-class Endpoint:
+class SearchService:
     SEARCH = 'https://openapi.companybooknetworking.com/1.0/search/search?'
 
 
@@ -36,9 +36,9 @@ def search(query, country=''):
         parameters['q'] = query
     if country:
         parameters['country'] = country
-    response = get(Endpoint.SEARCH, headers=HEADERS, params=parameters)
+    response = get(SearchService.SEARCH, headers=HEADERS, params=parameters)
     status_code = response.status_code
     if status_code != 200:
-        error('Request to {} status code {}: {}'.format(Endpoint.SEARCH, status_code, response.text))
+        error('Request to {} status code {}: {}'.format(SearchService.SEARCH, status_code, response.text))
         return "Error handling request!"
     return (dumps(format_response(response.text)))
