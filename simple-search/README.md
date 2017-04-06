@@ -8,5 +8,5 @@ To run it:
 - Install cherrypy
 - run using python server.py
 
-This is example works with python 2.7 and python 3.
+This example works with python 2.7 and python 3.
 
