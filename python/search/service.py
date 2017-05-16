@@ -27,7 +27,10 @@ class SearchService:
         response = ''
         for doc in docs:
             i += 1
-            response += '{}. {} [{}]\n'.format(i, doc['name'], 'https://www.companybooknetworking.com/{}'.format(doc['company_id']))
+            response += '{}. {} [{}]\n'.format(
+                i,
+                doc['name'],
+                'https://www.companybooknetworking.com/{}'.format(doc['company_id']))
         return response
 
     @classmethod
