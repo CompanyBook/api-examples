@@ -23,3 +23,5 @@ To find the top result for a query within an industry:
 python python/search/service.py search database GB 511210
 
 
+To find the most likely Companybook IDs for a given company name:
+python python/search/service.py match apple
