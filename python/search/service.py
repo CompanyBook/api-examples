@@ -11,6 +11,7 @@ HEADERS = {
 
 
 class SearchService:
+    MATCH = "https://openapi.companybooknetworking.com/1.0/search/match"
     SEARCH = "https://openapi.companybooknetworking.com/1.0/search/search"
     PARAMETERS = {
         'page': 1,
@@ -43,6 +44,21 @@ class SearchService:
         if industry != '':
             parameters['naics_6'] = industry
         url = cls.SEARCH
+        response = get(url, headers=HEADERS, params=parameters)
+        status_code = response.status_code
+        if status_code != 200:
+            error('Request to {} status code {}: {}'.format(SearchService.SEARCH, status_code, response.text))
+            return "Error handling request!"
+        return cls.format_response(response.text)
+
+    @classmethod
+    def company_match(cls, query):
+        parameters = {
+            'per_page': 5,
+        }
+        if query:
+            parameters['q'] = query
+        url = cls.MATCH
         response = get(url, headers=HEADERS, params=parameters)
         status_code = response.status_code
         if status_code != 200:
@@ -101,5 +117,7 @@ if __name__ == "__main__":
         print(SearchService.search(query, country, industry))
     elif search_type == 'industry':
         print(IndustryService.search(query, country))
+    elif search_type == 'match':
+        print(SearchService.company_match(query))
     else:
-        info('Unknown search type {}. I only know "search" and "industry"'.format(search_type))
+        info('Unknown search type {}. I only know search, industry and match (find company)'.format(search_type))
