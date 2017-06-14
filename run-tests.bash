@@ -1,5 +1,8 @@
 #!/bin/bash
 
+python --version
+pip install requests
+
 echo "API_KEY='$1'" > python/search/authority.py
 echo "API_KEY='$1'" > python/similar_companies/authority.py
 
