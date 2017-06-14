@@ -1,5 +1,6 @@
 #!/bin/bash
-cat python/search/authority.py
+set -e
+
 python3.5 --version
 pip3.5 install requests
 
