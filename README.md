@@ -12,7 +12,7 @@ You need to create a file called authority.py in the same directory as the code 
 This file needs to define your **API_KEY** like this:
 
 ```
-API_KEY='your api key here
+API_KEY='your api key here'
 ```
 
 ## Search

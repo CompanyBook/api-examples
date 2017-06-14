@@ -11,7 +11,7 @@ HEADERS = {
 
 
 class SimilarCompaniesService:
-    COMPANY = "https://openapi.companybooknetworking.com/1.0/similar-companies/company"
+    COMPANY_URL = "https://openapi.companybooknetworking.com/1.0/similar-companies/company"
 
     @classmethod
     def format_response(cls, raw_result):
@@ -29,7 +29,7 @@ class SimilarCompaniesService:
 
     @classmethod
     def find_companies(cls, company_id):
-        url = "{}/{}".format(cls.COMPANY, company_id)
+        url = "{}/{}".format(cls.COMPANY_URL, company_id)
         response = get(url, headers=HEADERS)
         status_code = response.status_code
         if status_code != 200:
