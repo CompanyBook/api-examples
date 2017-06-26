@@ -46,7 +46,8 @@ python python/similar_companies.py US0000000060704780
 
 ## News Relations
 Contains a command line tool to query Companybook for companies with specific relations to
-a company. I.e the competitors of a company.
+a company. I.e the competitors of a company. Other relations are documented in the developer
+portal.
 
 ```
 python python/news.py relation US0000000060704780 competitors
