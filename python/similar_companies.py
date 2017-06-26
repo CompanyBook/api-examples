@@ -1,4 +1,5 @@
 from authority import API_KEY
+from companybook import API_ENDPOINT_BASE
 from json import dumps, loads
 from logging import info, error
 from requests import get
@@ -11,7 +12,7 @@ HEADERS = {
 
 
 class SimilarCompaniesService:
-    COMPANY_URL = "https://openapi.companybooknetworking.com/1.0/similar-companies/company"
+    COMPANY_URL = "{}/{}".format(API_ENDPOINT_BASE, 'similar-companies/company')
 
     @classmethod
     def format_response(cls, raw_result):

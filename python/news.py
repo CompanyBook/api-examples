@@ -1,4 +1,5 @@
 from authority import API_KEY
+from companybook import API_ENDPOINT_BASE
 from json import loads
 from logging import info, error
 from requests import get
@@ -11,7 +12,7 @@ HEADERS = {
 
 
 class NewsService:
-    COMPANY_RELATION_URL = "https://openapi.companybooknetworking.com/1.0/news/company-relation"
+    COMPANY_RELATION_URL = "{}/{}".format(API_ENDPOINT_BASE, 'news/company-relation')
 
     @classmethod
     def format_response(cls, raw_result, relation):
