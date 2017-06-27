@@ -1,4 +1,5 @@
 from authority import API_KEY
+from companybook import API_ENDPOINT_BASE
 from json import dumps, loads
 from logging import info, error
 from requests import get
@@ -11,8 +12,8 @@ HEADERS = {
 
 
 class SearchService:
-    MATCH = "https://openapi.companybooknetworking.com/1.0/search/match"
-    SEARCH = "https://openapi.companybooknetworking.com/1.0/search/search"
+    MATCH = "{}/{}".format(API_ENDPOINT_BASE, 'search/match')
+    SEARCH = "{}/{}".format(API_ENDPOINT_BASE, 'search/search')
     PARAMETERS = {
         'page': 1,
         'per_page': 10,
