@@ -52,3 +52,10 @@ portal.
 ```
 python python/news.py relation US0000000060704780 competitors
 ```
+
+## Information about a company
+An example showing how to request information about a company from the Companybook API.
+
+```
+python python/companies.py info US0000000060704780
+```
