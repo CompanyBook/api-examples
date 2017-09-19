@@ -59,3 +59,26 @@ An example showing how to request information about a company from the Companybo
 ```
 python python/companies.py info US0000000060704780
 ```
+
+## Triggers
+Examples showing both company and topic triggers.
+
+To find new deals for a company:
+```
+python python/triggers.py company new_deal US0000000060704780
+```
+
+To find all triggers for a company:
+```
+python python/triggers.py company '*' US0000000060704780
+```
+
+To find mergers & acquisition triggers for a topic (artificial intelligence):
+```
+python python/triggers.py topic ma artificial intelligence
+```
+
+To find all triggers for a topic (artificial intelligence)
+```
+python python/triggers.py topic '*' artificial intelligence
+```
